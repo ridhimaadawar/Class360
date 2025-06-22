@@ -20,9 +20,7 @@
 ## 🛠 Tech Stack
 
 - **Frontend:** HTML5, CSS3, JavaScript, Bootstrap  
-- **Backend:** Python, Flask *(optional: Django)*  
-- **Database:** MySQL or PostgreSQL  
-- **Other Tools:** Git, GitHub, Selenium (testing), Postman (API)
+- **Backend:** Python, Flask  
 
 ---
 
@@ -34,14 +32,4 @@
 - **Task Manager** – Auto-reminders for submissions, exams, events  
 - **Login System** – Role-based access (student/faculty/admin)
 
----
 
-## 📸 Screenshots
-
-> *(You can add these later)*  
-- Dashboard UI  
-- Assignment submission  
-- Analytics report graph  
-- Notification system
-
----
