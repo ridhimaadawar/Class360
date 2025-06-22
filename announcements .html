@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Announcements</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* General styling */
+        body {
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Sidebar styling */
+        .sidebar {
+            width: 250px;
+            background-color: #003366;
+            color: #fff;
+            position: fixed;
+            height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .sidebar .profile-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            border: 2px solid #fff;
+        }
+        .sidebar h2 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+            text-align: center;
+            margin: 10px 0;
+        }
+        .sidebar ul {
+            list-style: none;
+            width: 100%;
+            text-align: center;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin: 15px 0;
+        }
+        .sidebar ul li a {
+            color: #cfd8dc;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px 15px;
+            border-radius: 5px;
+            display: block;
+            transition: background 0.3s;
+        }
+        .sidebar ul li a:hover {
+            background-color: #1abc9c;
+            color: #ffffff;
+        }
+        .sidebar .logout {
+            color: #e74c3c;
+        }
+
+        /* Main content styling */
+        .main-content {
+            margin-left: 270px;
+            padding: 40px;
+            width: calc(100% - 270px);
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        /* Announcements styling */
+        .announcements {
+            width: 60%;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .announcements h1 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .announcement-item {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .announcement-item:last-child {
+            border-bottom: none;
+        }
+        .announcement-item h3 {
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: #003366;
+        }
+        .announcement-item p {
+            font-size: 14px;
+            color: #555;
+        }
+        .announcement-item .date {
+            font-size: 12px;
+            color: #999;
+        }
+
+        /* To-Do List styling */
+        .todo-list {
+            width: 35%;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .todo-list h2 {
+            font-size: 20px;
+            color: #003366;
+            margin-bottom: 15px;
+        }
+        .todo-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .todo-item input[type="checkbox"] {
+            margin-right: 10px;
+            transform: scale(1.2);
+        }
+        .todo-item label {
+            font-size: 16px;
+            color: #333;
+        }
+        .todo-item.completed label {
+            text-decoration: line-through;
+            color: #888;
+        }
+        .add-todo {
+            display: flex;
+            margin-top: 15px;
+        }
+        .add-todo input[type="text"] {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-right: 10px;
+            font-size: 16px;
+        }
+        .add-todo button {
+            padding: 8px 15px;
+            background-color: #003366;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .add-todo button:hover {
+            background-color: #1abc9c;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <img src="icon.jpeg" alt="Profile Picture" class="profile-image">
+        <h2>Student Portal</h2>
+        <ul>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="grades.html">Grades</a></li>
+            <li><a href="attendance.html">Attendance</a></li>
+            <li><a href="C:\Users\kabee\OneDrive\Desktop\Ri\class360\templates\assignment.html">Assignments</a></li>
+            <li><a href="C:\Users\kabee\OneDrive\Desktop\Ri\class360\templates\announcements .html">Announcements</a></li>            
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="splash.html" class="logout">Logout</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Announcements Section -->
+        <div class="announcements">
+            <h1>Announcements</h1>
+            <div class="announcement-item">
+                <h3>Library Closed on Friday</h3>
+                <p>The library will be closed for maintenance on Friday.</p>
+                <span class="date">Posted on: November 27, 2024</span>
+            </div>
+            <div class="announcement-item">
+                <h3>New Assignment for Math 101</h3>
+                <p>A new assignment has been posted for Math 101. Check the assignments page for details.</p>
+                <span class="date">Posted on: December 5, 2024</span>
+            </div>
+            <div class="announcement-item">
+                <h3>Mid-Term Exam Schedule Released</h3>
+                <p>The schedule for the mid-term exams has been released. Visit the exams section for more information.</p>
+                <span class="date">Posted on: December 10, 2024</span>
+            </div>
+            <div class="announcement-item">
+                <h3>Guest Lecture on AI and ML</h3>
+                <p>Join us for a guest lecture on Artificial Intelligence and Machine Learning next week.</p>
+                <span class="date">Posted on: December 15, 2024</span>
+            </div>
+        </div>
+
+        <!-- To-Do List Section -->
+        <div class="todo-list">
+            <h2>To-Do List</h2>
+            <div id="todoItemsContainer"></div>
+
+            <!-- Input for adding a new to-do item -->
+            <div class="add-todo">
+                <input type="text" id="newTodoInput" placeholder="Add a new task">
+                <button onclick="addTodo()">Add</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for To-Do List Functionality -->
+    <script>
+        // Initialize to-do list items
+        const todoItems = [];
+
+        function addTodo() {
+            const newTodoInput = document.getElementById("newTodoInput");
+            const newTodoText = newTodoInput.value.trim();
+
+            if (newTodoText) {
+                todoItems.push({ text: newTodoText, completed: false });
+                newTodoInput.value = '';
+                renderTodoList();
+            }
+        }
+
+        function toggleTodoCompletion(index) {
+            todoItems[index].completed = !todoItems[index].completed;
+            renderTodoList();
+        }
+
+        function renderTodoList() {
+            const container = document.getElementById("todoItemsContainer");
+            container.innerHTML = '';
+
+            todoItems.forEach((item, index) => {
+                const todoItemDiv = document.createElement("div");
+                todoItemDiv.className = "todo-item" + (item.completed ? " completed" : "");
+
+                const checkbox = document.createElement("input");
+                checkbox.type = "checkbox";
+                checkbox.checked = item.completed;
+                checkbox.onclick = () => toggleTodoCompletion(index);
+
+                const label = document.createElement("label");
+                label.textContent = item.text;
+
+                todoItemDiv.appendChild(checkbox);
+                todoItemDiv.appendChild(label);
+                container.appendChild(todoItemDiv);
+            });
+        }
+    </script>
+
+</body>
+</html>

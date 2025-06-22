@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grades</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* General styling */
+        body {
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Sidebar styling */
+        .sidebar {
+            width: 250px;
+            background-color: #003366;
+            color: #fff;
+            position: fixed;
+            height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .sidebar .profile-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            border: 2px solid #fff;
+        }
+        .sidebar h2 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+            text-align: center;
+            margin: 10px 0;
+        }
+        .sidebar ul {
+            list-style: none;
+            width: 100%;
+            text-align: center;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin: 15px 0;
+        }
+        .sidebar ul li a {
+            color: #cfd8dc;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px 15px;
+            border-radius: 5px;
+            display: block;
+            transition: background 0.3s;
+        }
+        .sidebar ul li a:hover {
+            background-color: #1abc9c;
+            color: #ffffff;
+        }
+        .sidebar .logout {
+            color: #e74c3c;
+        }
+
+        /* Main content styling */
+        .main-content {
+            margin-left: 270px;
+            padding: 40px;
+            width: calc(100% - 270px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        /* Chart container styling */
+        .chart-container {
+            width: 100%;
+            max-width: 800px;
+            margin-bottom: 40px;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Grades table styling */
+        .grades-table {
+            width: 100%;
+            max-width: 800px;
+            border-collapse: collapse;
+            margin: 0 auto;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .grades-table th, .grades-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        .grades-table th {
+            background-color: #003366;
+            color: #ffffff;
+            font-weight: bold;
+        }
+        .grades-table tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .grades-table tbody tr:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+    <!-- Include Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <img src="icon.jpeg" alt="Profile Picture" class="profile-image">
+        <h2>Student Portal</h2>
+        <ul>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="grades.html">Grades</a></li>
+            <li><a href="attendance.html">Attendance</a></li>
+            <li><a href="C:\Users\kabee\OneDrive\Desktop\Ri\class360\templates\assignment.html">Assignments</a></li>
+            <li><a href="C:\Users\kabee\OneDrive\Desktop\Ri\class360\templates\announcements .html">Announcements</a></li>            
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="splash.html" class="logout">Logout</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <h1>Class Performance</h1>
+
+        <!-- Chart Container -->
+        <div class="chart-container">
+            <canvas id="gradesChart"></canvas>
+        </div>
+
+        <!-- Grades Table -->
+        <table class="grades-table">
+            <thead>
+                <tr>
+                    <th>Student ID</th>
+                    <th>Name</th>
+                    <th>Math</th>
+                    <th>Science</th>
+                    <th>History</th>
+                    <th>English</th>
+                    <th>Average</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1001</td><td>Pratishtha K</td><td>88</td><td>92</td><td>85</td><td>90</td><td>88.75</td></tr>
+                <tr><td>1002</td><td>Bobby S</td><td>76</td><td>84</td><td>80</td><td>78</td><td>79.5</td></tr>
+                <tr><td>1003</td><td>Ridhimaa D</td><td>92</td><td>95</td><td>93</td><td>94</td><td>93.5</td></tr>
+                <tr><td>1004</td><td>Diana P</td><td>89</td><td>90</td><td>88</td><td>91</td><td>89.5</td></tr>
+                <tr><td>1005</td><td>Ish J</td><td>75</td><td>78</td><td>82</td><td>80</td><td>78.75</td></tr>
+                <tr><td>1006</td><td>Farhan Z</td><td>90</td><td>87</td><td>89</td><td>88</td><td>88.5</td></tr>
+                <tr><td>1007</td><td>Gargi B </td><td>70</td><td>75</td><td>72</td><td>74</td><td>72.75</td></tr>
+                <tr><td>1008</td><td>Himani W</td><td>94</td><td>91</td><td>89</td><td>92</td><td>91.5</td></tr>
+                <tr><td>1009</td><td>Shreya T</td><td>85</td><td>83</td><td>80</td><td>82</td><td>82.5</td></tr>
+                <tr><td>1010</td><td>Srishti R</td><td>88</td><td>90</td><td>92</td><td>89</td><td>89.75</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Script for Chart.js -->
+    <script>
+        const ctx = document.getElementById('gradesChart').getContext('2d');
+        const gradesChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Math', 'Science', 'History', 'English'],
+                datasets: [{
+                    label: 'Average Grade',
+                    data: [84.7, 86.5, 85, 86],
+                    backgroundColor: [
+                        '#3498db',
+                        '#e74c3c',
+                        '#f1c40f',
+                        '#2ecc71'
+                    ],
+                    borderColor: [
+                        '#2980b9',
+                        '#c0392b',
+                        '#f39c12',
+                        '#27ae60'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        title: {
+                            display: true,
+                            text: 'Average Score'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    tooltip: {
+                        enabled: true
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

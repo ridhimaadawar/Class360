@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Calendar - Odd Semester 2024</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to dashboard stylesheet if it exists -->
+    <style>
+        /* Base styling */
+        body {
+            font-family: 'Verdana', sans-serif; /* Professional, clean font */
+            margin: 0;
+            padding: 0;
+            background-color: #f4f6f8;
+            display: flex;
+            color: #333;
+        }
+
+        /* Sidebar styling */
+        .sidebar {
+            width: 250px;
+            background-color: #003366;
+            color: #d4e6f1;
+            padding: 20px;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .sidebar h2 {
+            font-size: 20px; /* Larger font size for headers */
+            margin: 20px 0;
+            color: #d4e6f1;
+            text-align: center; /* Center alignment */
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            width: 100%;
+        }
+
+        .sidebar ul li {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .sidebar ul li a {
+            color: #d4e6f1;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 12px;
+            display: block;
+            text-align: center; /* Center alignment for menu items */
+            transition: background-color 0.3s;
+            border-radius: 4px;
+        }
+
+        .sidebar ul li a:hover {
+            background-color: #00509e;
+        }
+
+        .profile-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            border: 2px solid #d4e6f1;
+        }
+
+        /* Main content styling */
+        .main-content {
+            margin-left: 270px;
+            padding: 40px;
+            max-width: 800px;
+            margin-top: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center; /* Center-align content */
+        }
+
+        header h1 {
+            font-size: 24px;
+            color: #003366;
+            margin: 0 0 10px;
+            text-align: center;
+        }
+
+        header h2 {
+            font-size: 20px;
+            color: #666;
+            margin: 0;
+            text-align: center;
+        }
+
+        #calendar h3 {
+            color: #003366;
+            font-size: 20px;
+            margin-top: 20px;
+            border-bottom: 2px solid #003366;
+            padding-bottom: 5px;
+            text-align: center;
+        }
+
+        /* Month and event list styling */
+        .month-section {
+            margin-top: 20px;
+        }
+
+        .month-section h4 {
+            margin-top: 20px;
+            color: #00509e;
+            font-size: 18px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5px;
+            text-align: center; /* Center-align month headers */
+        }
+
+        .month-section ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .month-section ul li {
+            font-size: 16px;
+            margin-bottom: 8px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar navigation -->
+    <div class="sidebar">
+        <img src="icon.jpeg" alt="Profile Picture" class="profile-image">
+        <h2>Navigation</h2>
+        <ul>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="grades.html">Grades</a></li>
+            <li><a href="attendance.html">Attendance</a></li>
+            <li><a href="assignments.html">Assignments</a></li>
+            <li><a href="announcements.html">Announcements</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="logout.html" class="logout">Logout</a></li>
+        </ul>
+    </div>
+
+    <!-- Main content area -->
+    <div class="main-content">
+        <header>
+            <h1>Banarsidas Chandiwala Institute of Information Technology</h1>
+            <h2>Academic Calendar - Odd Semester (August 2024 - Dec 2024)</h2>
+        </header>
+
+        <section id="calendar">
+            <h3>Important Events</h3>
+            <div class="month-section">
+                <!-- August 2024 Events -->
+                <h4>August 2024</h4>
+                <ul>
+                    <li><strong>5 Aug:</strong> Commencement of Classes for MCA, BCA (various semesters)</li>
+                    <li><strong>13 Aug:</strong> Project Title Discussion for BCA 5th Sem</li>
+                    <li><strong>16 Aug:</strong> Project Title Discussion for MCA 3rd Sem</li>
+                    <li><strong>19 Aug:</strong> Orientation for BCA 1st year</li>
+                    <li><strong>27 Aug:</strong> IIC/INNOVATUP Event 1</li>
+                </ul>
+                
+                <!-- September 2024 Events -->
+                <h4>September 2024</h4>
+                <ul>
+                    <li><strong>6 Sep:</strong> Project Title Discussion for MCA 1st Sem</li>
+                    <li><strong>7 Sep:</strong> ECO-SOCIAL Event 1</li>
+                    <li><strong>12 Sep:</strong> ALUMNI MEET for MCA 3rd Sem</li>
+                    <li><strong>18 Sep:</strong> IIC/INNOVATUP Event 2</li>
+                    <li><strong>20 Sep:</strong> Fresher's Party</li>
+                </ul>
+
+                <!-- October 2024 Events -->
+                <h4>October 2024</h4>
+                <ul>
+                    <li><strong>4 Oct:</strong> Review 2 for BCA 5th Sem</li>
+                    <li><strong>8 Oct:</strong> Cultural Event 1</li>
+                    <li><strong>14-19 Oct:</strong> Minor Exam</li>
+                    <li><strong>22 Oct:</strong> Review 2 for MCA 1st Sem</li>
+                    <li><strong>25 Oct:</strong> Diwali Competition</li>
+                </ul>
+
+                <!-- November 2024 Events -->
+                <h4>November 2024</h4>
+                <ul>
+                    <li><strong>6 Nov:</strong> Review 3 for MCA 3rd Sem</li>
+                    <li><strong>12 Nov:</strong> ECO-SOCIAL Event 3</li>
+                    <li><strong>18 Nov:</strong> Final Submission for BCA 5th Sem</li>
+                </ul>
+
+                <!-- December 2024 Events -->
+                <h4>December 2024</h4>
+                <ul>
+                    <li><strong>5 Dec - 1 Jan:</strong> Term End Examination (Including Preparatory Leave)</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

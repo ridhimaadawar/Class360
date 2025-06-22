@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ridhimaa Dawar - Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Root and General Styles */
+        :root {
+            --primary-bg-color: #003366;
+            --secondary-bg-color: #d4e6f1;
+            --text-color: #333;
+            --highlight-color: #1abc9c;
+            --shadow-color: rgba(0, 0, 0, 0.15);
+            --font-primary: 'Roboto', sans-serif;
+        }
+        body {
+            display: flex;
+            min-height: 100vh;
+            background-color: var(--secondary-bg-color);
+            color: var(--text-color);
+            font-family: var(--font-primary);
+        }
+
+        /* Sidebar styling (Unified) */
+        .sidebar {
+            width: 250px;
+            background-color: #003366;
+            color: #fff;
+            position: fixed;
+            height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .profile-image {
+           width: 100px;
+           height: 100px;
+           border-radius: 50%;
+    margin-bottom: 15px;
+    border: 2px solid #fff;
+        }
+       .sidebar h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.sidebar ul {
+    list-style: none;
+    width: 100%;
+    text-align: center;
+    padding: 0;
+}
+.sidebar ul li {
+    margin: 15px 0;
+}
+.sidebar ul li a {
+    color: #cfd8dc;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    display: block;
+    transition: background 0.3s;
+}
+.sidebar ul li a:hover {
+    background-color: #1abc9c;
+    color: #ffffff;
+}
+.sidebar .logout {
+    color: #e74c3c;
+}
+
+
+        /* Main Content Styles */
+        .main-content {
+            margin-left: 270px;
+            padding: 40px;
+            width: calc(100% - 270px);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            color: var(--primary-bg-color);
+            font-size: 28px;
+        }
+
+        /* Card Styles */
+        .dashboard-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .card {
+            flex: 1 1 300px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px var(--shadow-color);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card h3 {
+            font-size: 22px;
+        }
+        .card p {
+            font-size: 16px;
+            color: #555;
+        }
+
+        /* Specific Elements */
+        .progress-bar {
+            width: 100%;
+            background-color: #e0e0e0;
+            border-radius: 20px;
+            height: 10px;
+            margin-top: 10px;
+        }
+        .progress {
+            height: 100%;
+            background-color: var(--highlight-color);
+            border-radius: 20px;
+        }
+        .card ul.deadline-list {
+            list-style: none;
+            padding: 0;
+        }
+        .card ul.deadline-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px;
+            border-radius: 5px;
+            background: #f9f9fb;
+            margin-bottom: 10px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                position: relative;
+                flex-direction: row;
+            }
+            .main-content {
+                margin-left: 0;
+            }
+            .dashboard-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <img src="icon.jpeg" alt="Profile Picture" class="profile-image">
+        <h2>Student Portal</h2>
+        <ul>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="grades.html">Grades</a></li>
+            <li><a href="attendance.html">Attendance</a></li>
+            <li><a href="C:\Users\kabee\OneDrive\Desktop\Ri\class360\templates\assignment.html">Assignments</a></li>
+            <li><a href="C:\Users\kabee\OneDrive\Desktop\Ri\class360\templates\announcements .html">Announcements</a></li>            
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="splash.html" class="logout">Logout</a></li>
+        </ul>
+    </div>    
+
+    <div class="main-content">
+        <div class="header">
+            <h1>Welcome, Ridhimaa Dawar</h1>
+            <p>Student ID: 270323 | Batch 2024-26</p>
+        </div>
+        <div class="dashboard-content">
+            <div class="card">
+                <h3>Class Information</h3>
+                <p><strong>Institution:</strong> Banarsidas Chandiwala Institute of Information Technology</p>
+                <p><strong>Course:</strong> Masters in Computer Science</p>
+            </div>
+            <div class="card">
+                <h3>Attendance</h3>
+                <p><strong>Total Classes:</strong> 120</p>
+                <p><strong>Attended:</strong> 108</p>
+                <p><strong>Attendance Percentage:</strong> 90%</p>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 90%;"></div>
+                </div>
+            </div>
+            <div class="card">
+                <h3>Pending Dues</h3>
+                <p><strong>Total Fees:</strong> ₹150,000</p>
+                <p><strong>Paid:</strong> ₹100,000</p>
+                <p><strong>Pending:</strong> ₹50,000</p>
+                <p><strong>Due Date:</strong> December 15, 2024</p>
+            </div>
+            <div class="card">
+                <h3>Contact Information</h3>
+                <p><strong>Email:</strong> dridhimaa@gmail.com</p>
+                <p><strong>Phone:</strong> +91 9821663533</p>
+            </div>
+            <div class="card">
+                <h3>Upcoming Deadlines</h3>
+                <ul class="deadline-list">
+                    <li>Final Project Submission: <span>December 20, 2024</span></li>
+                    <li>Mid-Term Exams: <span>January 10, 2025</span></li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Performance Notes</h3>
+                <p>Ridhimaa has consistently shown excellent academic performance and active participation in projects.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

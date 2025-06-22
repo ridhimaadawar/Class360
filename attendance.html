@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* General styling */
+        body {
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Sidebar styling */
+        .sidebar {
+            width: 250px;
+            background-color: #003366;
+            color: #fff;
+            position: fixed;
+            height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .sidebar .profile-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            border: 2px solid #fff;
+        }
+        .sidebar h2 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+            text-align: center;
+            margin: 10px 0;
+        }
+        .sidebar ul {
+            list-style: none;
+            width: 100%;
+            text-align: center;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin: 15px 0;
+        }
+        .sidebar ul li a {
+            color: #cfd8dc;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px 15px;
+            border-radius: 5px;
+            display: block;
+            transition: background 0.3s;
+        }
+        .sidebar ul li a:hover {
+            background-color: #1abc9c;
+            color: #ffffff;
+        }
+        .sidebar .logout {
+            color: #e74c3c;
+        }
+
+        /* Main content styling */
+        .main-content {
+            margin-left: 270px;
+            padding: 40px;
+            width: calc(100% - 270px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        /* Chart container styling */
+        .chart-container {
+            width: 100%;
+            max-width: 800px;
+            margin-bottom: 40px;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Attendance table styling */
+        .attendance-table {
+            width: 100%;
+            max-width: 800px;
+            border-collapse: collapse;
+            margin: 0 auto;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .attendance-table th, .attendance-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        .attendance-table th {
+            background-color: #003366;
+            color: #ffffff;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .attendance-table tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .attendance-table tbody tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        /* Attendance status styling */
+        .status-present {
+            color: #2ecc71;
+            font-weight: bold;
+        }
+        .status-absent {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+    </style>
+    <!-- Include Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <img src="icon.jpeg" alt="Profile Picture" class="profile-image">
+        <h2>Student Portal</h2>
+        <ul>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="grades.html">Grades</a></li>
+            <li><a href="attendance.html">Attendance</a></li>
+            <li><a href="C:\Users\kabee\OneDrive\Desktop\Ri\class360\templates\assignment.html">Assignments</a></li>
+            <li><a href="C:\Users\kabee\OneDrive\Desktop\Ri\class360\templates\announcements .html">Announcements</a></li>            
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="splash.html" class="logout">Logout</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <h1>Class Attendance</h1>
+
+        <!-- Chart Container -->
+        <div class="chart-container">
+            <canvas id="attendanceChart"></canvas>
+        </div>
+
+        <!-- Attendance Table -->
+        <table class="attendance-table">
+            <thead>
+                <tr>
+                    <th onclick="sortTable(0)">Student ID</th>
+                    <th onclick="sortTable(1)">Name</th>
+                    <th onclick="sortTable(2)">Total Classes</th>
+                    <th onclick="sortTable(3)">Attended</th>
+                    <th onclick="sortTable(4)">Attendance (%)</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1001</td><td>Pratishtha K </td><td>50</td><td>48</td><td>96</td><td class="status-present">Present</td></tr>
+                <tr><td>1002</td><td>Bobby S</td><td>50</td><td>42</td><td>84</td><td class="status-present">Present</td></tr>
+                <tr><td>1003</td><td>Ridhimaa D</td><td>50</td><td>49</td><td>98</td><td class="status-present">Present</td></tr>
+                <tr><td>1004</td><td>Diana P</td><td>50</td><td>46</td><td>92</td><td class="status-present">Present</td></tr>
+                <tr><td>1005</td><td>Ish J</td><td>50</td><td>40</td><td>80</td><td class="status-present">Present</td></tr>
+                <tr><td>1006</td><td>Farhan Z</td><td>50</td><td>47</td><td>94</td><td class="status-present">Present</td></tr>
+                <tr><td>1007</td><td>Gargi B</td><td>50</td><td>35</td><td>70</td><td class="status-absent">Absent</td></tr>
+                <tr><td>1008</td><td>Himani W</td><td>50</td><td>48</td><td>96</td><td class="status-present">Present</td></tr>
+                <tr><td>1009</td><td>Shreya T</td><td>50</td><td>43</td><td>86</td><td class="status-present">Present</td></tr>
+                <tr><td>1010</td><td>Srishti R</td><td>50</td><td>45</td><td>90</td><td class="status-present">Present</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Script for Chart.js to create a line chart -->
+    <script>
+        const ctx = document.getElementById('attendanceChart').getContext('2d');
+        const attendanceChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: [
+                    "Pratishtha K", "Bobby S", "Ridhimaa D", "Diana P", "Ish J",
+                    "Farhan Z", "Gargi B", "Himani W", "Shreya T", "Srishti R"
+                ],
+                datasets: [{
+                    label: 'Attendance Percentage (%)',
+                    data: [96, 84, 98, 92, 80, 94, 70, 96, 86, 90],
+                    borderColor: '#3498db',
+                    backgroundColor: 'rgba(52, 152, 219, 0.2)',
+                    borderWidth: 2,
+                    pointBackgroundColor: '#2980b9',
+                    fill: true,
+                    tension: 0.3
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        title: {
+                            display: true,
+                            text: 'Attendance (%)'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Students'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        position: 'top'
+                    },
+                    tooltip: {
+                        enabled: true
+                    }
+                }
+            }
+        });
+    </script>
+
+    <!-- Script to Sort Table Columns -->
+    <script>
+        function sortTable(columnIndex) {
+            const table = document.querySelector(".attendance-table tbody");
+            const rows = Array.from(table.rows);
+            const sortedRows = rows.sort((a, b) => {
+                const cellA = a.cells[columnIndex].innerText.toLowerCase();
+                const cellB = b.cells[columnIndex].innerText.toLowerCase();
+                const isNumeric = !isNaN(cellA) && !isNaN(cellB);
+                return isNumeric ? cellA - cellB : cellA.localeCompare(cellB);
+            });
+            table.innerHTML = "";
+            sortedRows.forEach(row => table.appendChild(row));
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portal Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-bg-color: #003366;
+            --secondary-bg-color: #d4e6f1;
+            --text-color: #333;
+            --highlight-color: #1abc9c;
+            --shadow-color: rgba(0, 0, 0, 0.15);
+            --font-primary: 'Roboto', sans-serif;
+        }
+        body {
+            display: flex;
+            min-height: 100vh;
+            background-color: var(--secondary-bg-color);
+            color: var(--text-color);
+            font-family: var(--font-primary);
+        }
+        body {
+            background-color: #d4e6f1 !important; 
+        }
+        .main-content {
+            background-color: transparent;
+        }
+
+        .sidebar {
+            background-color: var(--primary-bg-color);
+        }
+
+        body {
+            border: 10px solid #5a9e95;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            display: flex;
+            min-height: 100vh;
+            background-color: var(--secondary-bg-color);
+            color: var(--text-color);
+            font-family: var(--font-primary);
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: var(--primary-bg-color);
+            color: #fff;
+            position: fixed;
+            height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .profile-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            border: 2px solid #fff;
+        }
+        .sidebar h2 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+            text-align: center;
+        }
+        .sidebar ul {
+            list-style: none;
+            width: 100%;
+            text-align: center;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin: 15px 0;
+        }
+        .sidebar ul li a {
+            color: #cfd8dc;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px 15px;
+            border-radius: 5px;
+            display: block;
+            transition: background 0.3s;
+        }
+        .sidebar ul li a:hover {
+            background-color: var(--highlight-color);
+            color: #ffffff;
+        }
+        .sidebar .logout {
+            color: #e74c3c;
+        }
+
+        .main-content {
+            margin-left: 270px;
+            padding: 40px;
+            width: calc(100% - 270px);
+        }
+        .header {
+            background-color: #ffffff;
+            padding: 15px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px var(--shadow-color);
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 28px;
+            color: var(--text-color);
+        }
+
+        .dashboard-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .card {
+            flex: 1 1 300px;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px var(--shadow-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            border-top: 4px solid var(--primary-bg-color);
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px var(--shadow-color);
+        }
+        .card h3 {
+            font-size: 22px;
+            color: var(--text-color);
+            margin-bottom: 10px;
+        }
+        .card p {
+            font-size: 16px;
+            color: #666;
+        }
+
+        .announcement-panel {
+            width: 300px;
+            position: fixed;
+            bottom: 20px;
+            right: 680px;
+            background-color: var(--primary-bg-color);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px var(--shadow-color);
+            max-height: 100vh;
+            overflow-y: auto;
+            z-index: 9999;
+        }
+        .announcement-panel h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #f4f4f4;
+        }
+        .announcement-panel ul {
+            list-style: none;
+            padding: 0;
+        }
+        .announcement-panel ul li {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            font-size: 16px;
+            color: var(--text-color);
+        }
+        .announcement-panel ul li .date {
+            font-size: 12px;
+            color: #777;
+            display: block;
+            margin-top: 5px;
+        }
+
+        .chatbot {
+            width: 320px;
+            position: fixed;
+            bottom: 20px;
+            left: 270px;
+            background-color: #f7f9fc;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            z-index: 1000;
+            font-family: var(--font-primary);
+            overflow: hidden;
+        }
+        .chatbot-header {
+            background-color: var(--primary-bg-color);
+            color: #ffffff;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 500;
+            font-size: 16px;
+        }
+        .chatbot-header button {
+            background: transparent;
+            color: #ffffff;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        .chatbot-messages {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            max-height: 350px;
+            background-color: #ffffff;
+            scrollbar-width: thin;
+            scrollbar-color: #ccc transparent;
+        }
+        .chatbot-messages::-webkit-scrollbar {
+            width: 8px;
+        }
+        .chatbot-messages::-webkit-scrollbar-thumb {
+            background-color: #ccc;
+            border-radius: 4px;
+        }
+        .user-message, .bot-message {
+            padding: 10px 15px;
+            margin: 8px 0;
+            border-radius: 20px;
+            max-width: 80%;
+            line-height: 1.4;
+            animation: fadeIn 0.3s ease;
+        }
+        .user-message {
+            background-color: var(--highlight-color);
+            color: #ffffff;
+            align-self: flex-end;
+        }
+        .bot-message {
+            background-color: #f1f1f1;
+            color: var(--text-color);
+            align-self: flex-start;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .chatbot-input {
+            display: flex;
+            padding: 10px;
+            background-color: #f7f9fc;
+            border-top: 1px solid #ddd;
+        }
+        .chatbot-input input {
+            flex: 1;
+            padding: 10px;
+            border-radius: 20px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+            outline: none;
+            margin-right: 10px;
+            transition: border-color 0.3s;
+        }
+        .chatbot-input input:focus {
+            border-color: var(--highlight-color);
+        }
+        .chatbot-input button {
+            padding: 8px 16px;
+            background-color: var(--highlight-color);
+            color: #ffffff;
+            border: none;
+            border-radius: 20px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .chatbot-input button:hover {
+            background-color: #17a085;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                flex-direction: row;
+                justify-content: space-around;
+            }
+            .main-content {
+                margin-left: 0;
+                margin-top: 60px;
+                padding: 20px;
+            }
+            .dashboard-content {
+                flex-direction: column;
+            }
+            .announcement-panel, .chatbot {
+                width: 100%;
+                position: relative;
+                top: 0;
+                left: 0;
+                margin-top: 20px;
+                max-height: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <img src="icon.jpeg" alt="Profile Picture" class="profile-image">
+        <h2>Student Portal</h2>
+        <ul>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="grades.html">Grades</a></li>
+            <li><a href="attendance.html">Attendance</a></li>
+            <li><a href="C:\Users\kabee\OneDrive\Desktop\Ri\class360\templates\assignment.html">Assignments</a></li>
+            <li><a href="C:\Users\kabee\OneDrive\Desktop\Ri\class360\templates\announcements .html">Announcements</a></li>            
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="C:\Users\kabee\OneDrive\Desktop\Ri\class360\splash.html" class="logout">Logout</a></li>
+        </ul>
+    </div>
+    
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Student Portal Dashboard</title>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+        <style>
+            /* Main styles */
+            :root {
+                --primary-bg-color: #003366;
+                --secondary-bg-color: #f9f9fb;
+                --text-color: #333;
+                --highlight-color: #1abc9c;
+                --shadow-color: rgba(0, 0, 0, 0.15);
+                --font-primary: 'Roboto', sans-serif;
+            }
+    
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body {
+                display: flex;
+                min-height: 100vh;
+                background-color: var(--secondary-bg-color);
+                color: var(--text-color);
+                font-family: var(--font-primary);
+            }
+    
+            .main-content {
+                width: 100%;
+                padding: 40px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .header {
+                text-align: center;
+                padding: 15px;
+                margin-bottom: 30px;
+            }
+            .header h1 {
+                font-size: 28px;
+                color: var(--text-color);
+            }
+    
+            /* Image slider styles */
+            .img {
+                position: relative;
+                width: 100%;
+                max-width: 600px;
+                overflow: hidden;
+                margin-bottom: 20px;
+            }
+            .img img {
+                width: 100%;
+                height: 300px;
+                display: none;
+                transition: opacity 0.5s ease;
+            }
+            .img img.active {
+                display: block;
+                opacity: 1;
+            }
+    
+            .image-dots {
+                position: absolute;
+                bottom: 10px;
+                left: 50%;
+                transform: translateX(-50%);
+                display: flex;
+                gap: 5px;
+            }
+    
+            .image-dots button {
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background-color: #ccc;
+                border: none;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+    
+            .image-dots button.active {
+                background-color: var(--highlight-color);
+            }
+    
+            /* Thought of the Day styles */
+            .thought-of-the-day {
+                max-width: 600px;
+                width: 100%;
+                padding: 15px 20px; /* Increased padding slightly */
+                background-color: #ffffff;
+                border-left: 5px solid var(--highlight-color); /* Slightly thicker border */
+                border-radius: 8px;
+                box-shadow: 0 4px 10px var(--shadow-color);
+                text-align: center;
+                margin-top: 15px; /* Slightly increased space under images */
+            }
+            .thought-of-the-day h2 {
+                font-size: 22px; /* Slightly larger font size */
+                margin-bottom: 8px; /* More spacing below the title */
+                color: var(--highlight-color);
+            }
+            .thought-of-the-day p {
+                font-size: 18px; /* Slightly larger font size */
+                color: var(--text-color);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="main-content">
+            <div class="header">
+                <h1>Welcome, Ridhimaa Dawar</h1>
+                <p>Student ID: 270323</p>
+            </div>
+    
+            <div class="img">
+                <img src="C:\Users\kabee\OneDrive\Desktop\Ri\class360\img\image1.jpeg" alt="Image 1" class="active">
+                <img src="C:\Users\kabee\OneDrive\Desktop\Ri\class360\img\image2.jpeg" alt="Image 2">
+                <img src="C:\Users\kabee\OneDrive\Desktop\Ri\class360\img\image3.jpg" alt="Image 3">
+                <img src="C:\Users\kabee\OneDrive\Desktop\Ri\class360\img\image4.jpeg" alt="Image 4">
+                <img src="C:\Users\kabee\OneDrive\Desktop\Ri\class360\img\image5.jpg" alt="Image 5">
+                <img src="C:\Users\kabee\OneDrive\Desktop\Ri\class360\img\image6.jpeg" alt="Image 6">
+                <div class="image-dots">
+                    <button class="active"></button>
+                    <button></button>
+                    <button></button>
+                    <button></button>
+                    <button></button>
+                    <button></button>
+                </div>
+            </div>
+    
+            <!-- Thought of the Day Section -->
+            <div class="thought-of-the-day">
+                <h2>Thought of the Day</h2>
+                <p>"Education is the most powerful weapon which you can use to change the world." - Nelson Mandela</p>
+            </div>
+        </div>
+    
+        <script>
+            const images = document.querySelectorAll('.img img');
+            const dots = document.querySelectorAll('.image-dots button');
+            let currentIndex = 0;
+    
+            function showImage(index) {
+                images.forEach((img, i) => {
+                    img.classList.toggle('active', i === index);
+                });
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === index);
+                });
+            }
+    
+            function nextImage() {
+                currentIndex = (currentIndex + 1) % images.length;
+                showImage(currentIndex);
+            }
+    
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    currentIndex = index;
+                    showImage(currentIndex);
+                });
+            });
+    
+            setInterval(nextImage, 5000); // Change image every 5 seconds
+        </script>
+    </body>    
+                </div>        
+                <div class="main-content">
+                    <div class="header">
+                        <h1>Batch 2024-26</h1>
+                    </div>
+            
+                    <div class="dashboard-content">
+                        <a href="C:\Users\kabee\OneDrive\Desktop\Ri\class360\templates\grades.html" class="card">
+                            <h3>Grades</h3>
+                            <p>View your latest grades and performance reports.</p>
+                        </a>
+                        <a href="C:\Users\kabee\OneDrive\Desktop\Ri\class360\templates\attendance.html" class="card">
+                            <h3>Attendance</h3>
+                            <p>Check your attendance status and history.</p>
+                        </a>
+                        <a href="C:\Users\kabee\OneDrive\Desktop\Ri\class360\templates\assignment.html" class="card">
+                            <h3>Assignments</h3>
+                            <p>Track assignment due dates and submissions.</p>
+                        </a>
+                        <a href="C:\Users\kabee\OneDrive\Desktop\Ri\class360\templates\announcements .html" class="card">
+                            <h3>Announcements</h3>
+                            <p>Stay updated with the latest announcements.</p>
+                        </a>
+                        <a href="C:\Users\kabee\OneDrive\Desktop\Ri\class360\templates\important events.html" class="card">
+                            <h3>Upcoming Events</h3>
+                            <p>See upcoming events and important dates.</p>
+                        </a>
+                        <a href="C:\Users\kabee\OneDrive\Desktop\Ri\class360\templates\index.html" class="card">
+                            <h3>Resources</h3>
+                            <p>Access study resources and course materials.</p>
+                        </a>
+                    </div>
+                </div>
+
+    <div class="announcement-panel">
+        <h3>Recent Announcements</h3>
+        <ul>
+            <li>Library will be closed on Friday<span class="date">November 27, 2024</span></li>
+            <li>New assignment posted for Math 101<span class="date">December 5, 2024</span></li>
+            <li>Mid-term exam schedule released<span class="date">December 10, 2024</span></li>
+            <li>Guest lecture on AI and ML next week<span class="date">December 15, 2024</span></li>
+        </ul>
+    </div>
+
+    <div class="chatbot">
+        <div class="chatbot-header">
+            <h3>Chat with Us</h3>
+            <button onclick="toggleChat()">✖</button>
+        </div>
+        <div class="chatbot-messages" id="chatbotMessages"></div>
+        <div class="chatbot-input">
+            <input type="text" id="userInput" placeholder="Type your question..." onkeypress="if(event.key === 'Enter') sendMessage()">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        function toggleChat() {
+            document.querySelector('.chatbot').classList.toggle('hidden');
+        }
+
+        async function sendMessage() {
+            const userInput = document.getElementById('userInput').value;
+            if (!userInput) return;
+
+            displayMessage(userInput, 'user');
+            document.getElementById('userInput').value = '';
+
+            const response = await getAIResponse(userInput);
+            displayMessage(response, 'bot');
+        }
+
+        function displayMessage(message, sender) {
+            const messageContainer = document.createElement('div');
+            messageContainer.classList.add(sender === 'user' ? 'user-message' : 'bot-message');
+            messageContainer.textContent = message;
+            document.getElementById('chatbotMessages').appendChild(messageContainer);
+
+            const messages = document.getElementById('chatbotMessages');
+            messages.scrollTop = messages.scrollHeight;
+        }
+        document.getElementById('gradesBtn').addEventListener('click', function () {
+            showSection('gradesSection');
+        });
+        document.getElementById('attendanceBtn').addEventListener('click', function () {
+            showSection('attendanceSection');
+        });
+        document.getElementById('assignmentsBtn').addEventListener('click', function () {
+            showSection('assignmentsSection');
+        });
+        document.getElementById('announcementsBtn').addEventListener('click', function () {
+            showSection('announcementsSection');
+        });
+        document.getElementById('profileBtn').addEventListener('click', function () {
+            showSection('profileSection');
+        });
+
+function showSection(sectionId) {
+    const sections = document.querySelectorAll('[id$="Section"]');
+    sections.forEach(section => section.style.display = 'none');
+    document.getElementById(sectionId).style.display = 'block';
+}
+    // Toggle the chatbot visibility
+    function toggleChat() {
+        document.querySelector('.chatbot').classList.toggle('hidden');
+    }
+
+    // Handle sending the user's message to the chatbot
+    async function sendMessage() {
+        const userInput = document.getElementById('userInput').value.trim();
+        if (!userInput) return;
+
+        // Display the user's message on the chat interface
+        displayMessage(userInput, 'user');
+        document.getElementById('userInput').value = '';
+
+        // Fetch the response from the chatbot server
+        const response = await getAIResponse(userInput);
+        displayMessage(response, 'bot');
+    }
+
+    // Function to display a message in the chatbot
+    function displayMessage(message, sender) {
+        const messageContainer = document.createElement('div');
+        messageContainer.classList.add(sender === 'user' ? 'user-message' : 'bot-message');
+        messageContainer.textContent = message;
+        document.getElementById('chatbotMessages').appendChild(messageContainer);
+
+        // Auto-scroll to the latest message
+        const messages = document.getElementById('chatbotMessages');
+        messages.scrollTop = messages.scrollHeight;
+    }
+
+    // Function to get a response from the AI chatbot backend
+    async function getAIResponse(query) {
+        try {
+            // Ensure the correct server endpoint (update to your actual server's URL if different)
+            const serverUrl = 'https://api.openai.com/v1/engines/gpt-3.5-turbo/completions';
+
+    async function getAIResponse(query) {
+    try {
+        const response = await fetch(serverUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer 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`  // Replace with your actual API key
+            },
+            body: JSON.stringify({
+                prompt: query,
+                max_tokens: 50
+            })
+        });
+
+        const data = await response.json();
+        return data.choices[0].text.trim() || "No response received.";
+    } catch (error) {
+        console.error('Error:', error);
+        return "Sorry, an error occurred. Please try again later.";
+    }
+}
+
+
+    // Set up 'Enter' key submission for convenience
+    document.getElementById('userInput').addEventListener('keypress', function(event) {
+        if (event.key === 'Enter') sendMessage();
+    });
+    </script>
+</body>
+</html>
